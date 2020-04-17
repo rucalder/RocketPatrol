@@ -38,6 +38,8 @@ class Play extends Phaser.Scene{
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
+        
+
         //animation config
         this.anims.create({
             key: "explode",
