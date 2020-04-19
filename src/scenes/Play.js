@@ -37,8 +37,11 @@ class Play extends Phaser.Scene{
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        /*this.input.on("pointermove", (pointer: Phaser.Input.Pointer)=>{
+            console.log(pointer.x + "and the y " + pointer.y);
+        })*/
 
-        
+
 
         //animation config
         this.anims.create({
