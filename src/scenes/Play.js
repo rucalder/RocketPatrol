@@ -26,7 +26,8 @@ class Play extends Phaser.Scene{
         this.add.rectangle(37, 42, 566, 64, 0x00CF00).setOrigin(0, 0);
 
         //add rocket (p1)
-        this.p1Rocket = new Rocket(this, game.config.width/2 - 8, 431, "rocket").setScale(0.5, 0.5).setOrigin(0, 0);
+        this.p1Rocket = new Rocket1(this, game.config.width/4 - 8, 431, "rocket").setScale(0.5, 0.5).setOrigin(0, 0);
+        this.p2Rocket = new Rocket2(this, game.config.width/2 + 8, 431, "rocket").setScale(0.5, 0.5).setOrigin(0, 0);
 
         //add spaceships
         this.ship01 = new Spaceship(this, game.config.width + 192, 132, "spaceship", 0, 30).setOrigin(0, 0);
@@ -37,8 +38,11 @@ class Play extends Phaser.Scene{
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
-        /*this.input.on("pointermove", (pointer: Phaser.Input.Pointer)=>{
-            console.log(pointer.x + "and the y " + pointer.y);
+        //mouse1 = Phaser.Input.Pointer.
+        /*this.input.on("pointermove", ()=>{
+            console.log(Phaser.Input.Pointer.x + " and the y " + Phaser.Input.Pointer.y);
+            this.p1Rocket.x = Phaser.Input.Pointer.x;
+            this.p1Rocket.y = 431;
         })*/
 
 
