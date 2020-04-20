@@ -14,7 +14,7 @@ class Menu extends Phaser.Scene{
         //score display
         let menuConfig = {
             fontFamily: "Courier",
-            fontSize: "28px",
+            fontSize: "26px",
             backgroundColor: "#F3B141",
             color: "#843605",
             align: "right",
@@ -31,10 +31,11 @@ class Menu extends Phaser.Scene{
         let textSpacer = 64;
 
         this.add.text(centerX, centerY - textSpacer, "ROCKET PATROL", menuConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY, "Use mouse to move and click to Fire", menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY, "P1 Use arrows to move and (F) to Fire", menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY + 50, "P2 Use mouse to move and click to Fire", menuConfig).setOrigin(0.5);
         menuConfig.backgroundColor = "#00FF00";
         menuConfig.color = "#000";
-        this.add.text(centerX, centerY + textSpacer, "Press (<-) for Easy and (->) for Hard", menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY + 120, "Press (<-) for Easy and (->) for Hard", menuConfig).setOrigin(0.5);
 
         this.add.text(20, 20, "Rocket Patrol Menu");
         //this.scene.start("playScene");
@@ -49,8 +50,8 @@ class Menu extends Phaser.Scene{
           // easy mode
           game.settings = {
             spaceshipSpeed: 3,
-            gameTimer1: 10000,
-            gameTimer2: 10000    
+            gameTimer1: 60000,
+            gameTimer2: 60000    
           }
           this.sound.play('sfx_select');
           this.scene.start("playScene");    
