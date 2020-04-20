@@ -97,6 +97,7 @@ class Play extends Phaser.Scene{
         this.starfield.tilePositionX -= 4;
         if(!this.gameOver){
             this.p1Rocket.update();
+            this.p2Rocket.update();
             this.ship01.update();
             this.ship02.update();
             this.ship03.update();
@@ -118,6 +119,21 @@ class Play extends Phaser.Scene{
             this.p1Rocket.reset();
             this.shipExplode(this.ship01);
         }
+        if(this.checkCollision(this.p2Rocket, this.ship03)){
+            console.log("kaboom ship 03");
+            this.p2Rocket.reset();
+            this.shipExplode(this.ship03);
+        }
+        if(this.checkCollision(this.p2Rocket, this.ship02)){
+            console.log("kaboom ship 02");
+            this.p2Rocket.reset();
+            this.shipExplode(this.ship02);
+        }
+        if(this.checkCollision(this.p2Rocket, this.ship01)){
+            console.log("kaboom ship 01");
+            this.p2Rocket.reset();
+            this.shipExplode(this.ship01);
+        }
     }
 
     checkCollision(rocket, ship){
@@ -133,7 +149,7 @@ class Play extends Phaser.Scene{
             }
     }
 
-    shipExplode(ship){
+    shipExplode(ship, rocket){
         ship.alpha = 0;
 
         //create explosion sprite at ship's position
@@ -143,7 +159,7 @@ class Play extends Phaser.Scene{
             ship.reset();
             ship.alpha = 1;
             boom.destroy();
-        });
+        })
 
         // score increment and repaint
         this.p1Score += ship.points;

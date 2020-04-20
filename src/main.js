@@ -7,6 +7,10 @@ let config = {
 
 let game = new Phaser.Game(config);
 
+function create(){
+    game.physics.enable(p1Rocket, Phaser.Physics.ARCADE);
+}
+
 // define game settings
 game.settings = {
     spaceshipSpeed: 3,
