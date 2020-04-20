@@ -1,3 +1,9 @@
+// MODIFIED ROCKET PATROL POINT BREAKDOWN:
+//
+// S-Rank Tier:         Implement simultaneous two-player mode (50)
+// Intermediate Tier:   Simultaneous, asynchronous additive timing/scoring (25)
+//                      Mouse control and mouse click for player 2 (25)
+
 let config = {
     type: Phaser.CANVAS,
     width: 640,
