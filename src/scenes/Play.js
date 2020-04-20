@@ -56,6 +56,7 @@ class Play extends Phaser.Scene{
 
         //score
         this.p1Score = 0;
+        this.p2Score = 0;
 
         //score display
         let scoreConfig = {
@@ -71,6 +72,7 @@ class Play extends Phaser.Scene{
             fixedWidth: 100
         }
         this.scoreLeft = this.add.text(69, 54, this.p1Score, scoreConfig);
+        this.scoreRight = this.add.text(480, 54, this.p2Score, scoreConfig);
         
         // game over flag
         this.gameOver = false;
@@ -108,31 +110,43 @@ class Play extends Phaser.Scene{
             console.log("kaboom ship 03");
             this.p1Rocket.reset();
             this.shipExplode(this.ship03);
+            this.p1Score += this.ship03.points;
+            this.scoreLeft.text = this.p1Score;
         }
         if(this.checkCollision(this.p1Rocket, this.ship02)){
             console.log("kaboom ship 02");
             this.p1Rocket.reset();
             this.shipExplode(this.ship02);
+            this.p1Score += this.ship02.points;
+            this.scoreLeft.text = this.p1Score;
         }
         if(this.checkCollision(this.p1Rocket, this.ship01)){
             console.log("kaboom ship 01");
             this.p1Rocket.reset();
             this.shipExplode(this.ship01);
+            this.p1Score += this.ship01.points;
+            this.scoreLeft.text = this.p1Score;
         }
         if(this.checkCollision(this.p2Rocket, this.ship03)){
             console.log("kaboom ship 03");
             this.p2Rocket.reset();
             this.shipExplode(this.ship03);
+            this.p2Score += this.ship03.points;
+            this.scoreLeft.text = this.p2Score;
         }
         if(this.checkCollision(this.p2Rocket, this.ship02)){
             console.log("kaboom ship 02");
             this.p2Rocket.reset();
             this.shipExplode(this.ship02);
+            this.p2Score += this.ship02.points;
+            this.scoreLeft.text = this.p2Score;
         }
         if(this.checkCollision(this.p2Rocket, this.ship01)){
             console.log("kaboom ship 01");
             this.p2Rocket.reset();
             this.shipExplode(this.ship01);
+            this.p2Score += this.ship01.points;
+            this.scoreLeft.text = this.p2Score;
         }
     }
 
@@ -149,7 +163,7 @@ class Play extends Phaser.Scene{
             }
     }
 
-    shipExplode(ship, rocket){
+    shipExplode(ship){
         ship.alpha = 0;
 
         //create explosion sprite at ship's position
@@ -162,8 +176,7 @@ class Play extends Phaser.Scene{
         })
 
         // score increment and repaint
-        this.p1Score += ship.points;
-        this.scoreLeft.text = this.p1Score; 
+         
 
         this.sound.play('sfx_explosion')
     }
