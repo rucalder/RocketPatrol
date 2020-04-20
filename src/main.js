@@ -9,12 +9,14 @@ let game = new Phaser.Game(config);
 
 function create(){
     game.physics.enable(p1Rocket, Phaser.Physics.ARCADE);
+    game.physics.enable(p2Rocket, Phaser.Physics.ARCADE);
 }
 
 // define game settings
 game.settings = {
     spaceshipSpeed: 3,
-    gameTimer: 60000    
+    gameTimer1: 60000,  
+    gameTimer2: 60000  
 }
 
 //reserve keyboard vars
